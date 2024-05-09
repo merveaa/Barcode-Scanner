@@ -1,5 +1,8 @@
 import 'package:barcode_scanner/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
+
 import 'package:scan/scan.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -48,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           borderRadius: BorderRadius.all(Radius.circular(16.0)),
         ),
         child: const Icon(
-          Icons.scanner,
+          Icons.photo_camera_outlined,
           color: Colors.white,
         ),
       ),
@@ -62,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (BuildContext context) {
         return StatefulBuilder(builder: (BuildContext context, setState) {
           return SizedBox(
-            height: MediaQuery.of(context).size.height / 2,
+            height: MediaQuery.of(context).size.height / 1.5,
             child: Scaffold(
               appBar: _buildBarcodeScannerAppBar(),
               body: _buildBarcodeScannerBody(),
@@ -116,13 +119,36 @@ class _MyHomePageState extends State<MyHomePage> {
         controller: controller,
         scanAreaScale: .7,
         scanLineColor: AppConstants.primaryColor,
-        onCapture: (data) {
-          setState(() {
-            _scanResult = data;
-            Navigator.of(context).pop();
-          });
+        onCapture: (data) async {
+          List<Map<String, dynamic>> dataset = await _parseData();
+          bool found = false;
+          for (var item in dataset) {
+            if (item['barcode'] == data) {
+              found = true;
+              setState(() {
+                _scanResult = item['product'];
+              });
+              Navigator.of(context).pop();
+              break;
+            }
+          }
+          if (!found) {
+            setState(() {
+              _scanResult = 'Product not found';
+              Navigator.of(context).pop();
+            });
+          }
         },
       ),
     );
+  }
+
+  Future<String> _loadData() async {
+    return await rootBundle.loadString('assets/data.json');
+  }
+
+  Future<List<Map<String, dynamic>>> _parseData() async {
+    String jsonString = await _loadData();
+    return json.decode(jsonString).cast<Map<String, dynamic>>();
   }
 }
