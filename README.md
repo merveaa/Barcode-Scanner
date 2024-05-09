@@ -1,16 +1,40 @@
-# barcode_scanner
+# Barcode Scanner Application 
 
-A new Flutter project.
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Google-flutter-logo.png/120px-Google-flutter-logo.png" alt="Flutter Logo" />
+
+| Description | Recording |
+|--------------|--------------|
+| This application allows the user to identify products by scanning barcodes. By scanning the barcodes of the products, users can find the products corresponding to these barcodes in the database.| ![NewProjectClipchampileyapld1-ezgif com-crop](https://github.com/merveaa/barcode_scanner/assets/93757864/6f14499b-6dc9-4a07-936c-8fed6feda280)|
+
+
+## Features
+
+- **Barcode Scanner:** Users can scan barcodes of products using the camera.  
+- **Product Recognition:** The scanned barcode is matched with the products in the database and the name of the product is displayed to the user. 
+- **User-Friendly Interface:** Thanks to its simple and user-friendly interface, users can easily use the application. 
+
+
+
+| Menu Screen | Scan Screen | Result Screen |
+|--------------|--------------|--------------|
+| ![Screenshot_1715270842](https://github.com/merveaa/barcode_scanner/assets/93757864/6ad14366-0126-4d76-87de-8fd57700e984)|![Screenshot_1715270871](https://github.com/merveaa/barcode_scanner/assets/93757864/3ef5c9c7-329a-4e36-8024-ed6ffb6cce9a) |![Screenshot_1715270872](https://github.com/merveaa/barcode_scanner/assets/93757864/ddf37a38-efef-442b-acd2-967f3045d452)|
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Installation
 
-A few resources to get you started if this is your first Flutter project:
+**Clone the repository:**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[https://github.com/merveaa/barcode_scanner](https://github.com/merveaa/barcode_scanner)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Install dependencies:**
+
+```bash
+  flutter pub get
+```
+
+**Run the app:**
+
+```bash
+  flutter run
+```
