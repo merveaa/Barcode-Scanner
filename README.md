@@ -19,6 +19,15 @@
 |--------------|--------------|--------------|
 | ![Screenshot_1715270842](https://github.com/merveaa/barcode_scanner/assets/93757864/6ad14366-0126-4d76-87de-8fd57700e984)|![Screenshot_1715270871](https://github.com/merveaa/barcode_scanner/assets/93757864/3ef5c9c7-329a-4e36-8024-ed6ffb6cce9a) |![Screenshot_1715270872](https://github.com/merveaa/barcode_scanner/assets/93757864/ddf37a38-efef-442b-acd2-967f3045d452)|
 
+
+## Libraries and Functions
+This application uses the [scan](https://pub.dev/packages/scan) library for barcode scanning. Below are the key functions used from this library:
+- **ScanController:**  The ScanController is used to manage the scanning process.
+- **ScanView:**  The ScanView widget is used to display the camera view for scanning barcodes.
+- **onCapture:**  This callback function is triggered when a barcode is successfully scanned.
+- **toggleTorchMode:**  This function toggles the torch (flashlight) on and off.
+
+
 ## Getting Started
 
 ### Installation
